@@ -3,7 +3,7 @@ import GradeDataService from '../services/GradeService';
 
 const Grade = (props) => {
   const initialGradeState = {
-    id: null,
+    _id: null,
     name: '',
     subject: '',
     type: '',
@@ -16,7 +16,6 @@ const Grade = (props) => {
     GradeDataService.get(id)
       .then((response) => {
         setCurrentGrade(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -33,7 +32,7 @@ const Grade = (props) => {
   };
 
   const updateGrade = () => {
-    GradeDataService.update(currentGrade.id, currentGrade)
+    GradeDataService.update(currentGrade._id, currentGrade)
       .then((response) => {
         setMessage('The grade was updated successfully!');
       })
@@ -42,14 +41,15 @@ const Grade = (props) => {
       });
   };
 
-  const deleteGrade = () => {
-    GradeDataService.remove(currentGrade.id)
+  const deleteGrade = () => {        
+    GradeDataService.remove(currentGrade._id)
       .then((response) => {
         props.history.push('/grade');
       })
       .catch((e) => {
         console.log(e);
       });
+
   };
 
   return (

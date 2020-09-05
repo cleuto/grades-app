@@ -21,7 +21,6 @@ const GradeList = () => {
     GradeDataService.getAll()
       .then((response) => {
         setGrade(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -42,7 +41,6 @@ const GradeList = () => {
   const removeAllGrade = () => {
     GradeDataService.removeAll()
       .then((response) => {
-        console.log(response.data);
         refreshList();
       })
       .catch((e) => {
@@ -54,7 +52,6 @@ const GradeList = () => {
     GradeDataService.findByName(searchName)
       .then((response) => {
         setGrade(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -135,7 +132,7 @@ const GradeList = () => {
             </div>
 
             <Link
-              to={'/grade/' + currentGrade.id}
+              to={'/grade/' + currentGrade._id}
               className="badge badge-warning"
             >
               Edit
