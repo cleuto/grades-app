@@ -7,7 +7,7 @@ import AddGrade from './components/AddGrade';
 import Grade from './components/Grade';
 import GradeList from './components/GradeList';
 
-function App() {
+function App() { 
   return (
     <Router>
       <div>
